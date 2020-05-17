@@ -6,13 +6,14 @@ import './plugins/element.js'
 import './assets/global.less'
 // 导入图标样式
 import './assets/fonts/iconfont.css'
-
+import TreeTable from 'vue-table-with-tree-grid'
 // 导入axios
 import axios from 'axios'
 // 配置url
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 // 添加到vue的原型对象上
 Vue.prototype.$http = axios
+Vue.use(TreeTable)
 
 // 设置请求拦截器, 为了在服务器请求之前设置头部信息的token值
 axios.interceptors.request.use(config => {

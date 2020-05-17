@@ -6,7 +6,7 @@
             <img src="../assets/logo.png" alt="">
             <span>电商后台管理系统</span>
           </div>
-          <el-button type="info">退出</el-button>
+          <el-button type="info" @click="rmtoken">退出</el-button>
         </el-header>
         <!--页面主题区域-->
         <el-container>
@@ -83,6 +83,10 @@ export default {
     saveIndexStatus (activeIndex) {
       this.activeIndex = activeIndex
       window.sessionStorage.setItem('activeIndex', activeIndex)
+    },
+    rmtoken() {
+      window.sessionStorage.clear()
+      location.reload()
     }
 
   }

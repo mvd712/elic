@@ -140,14 +140,15 @@
           this.getUserList()
       },
       methods: {
-        async getUserList () {
-          const { data:res } = this.$http.get('users', {
-              params: this.queryInfo
-            })
-          if (res.meta.status !== 200) return this.$message.error('fald')
+        async getUserList() {
+          const { data: res } = await this.$http.get('users', {
+            params: this.queryInfo
+          })
+          if (res.meta.status !== 200) return this.$message.error('用户列表获取失败')
+          // 成功
           this.userList = res.data.users
           this.total = res.data.total
-          },
+        },
         // 监听pagesize改变事件
         handleSizeChange(newSize) {
           this.queryInfo.pagesize = newSize
